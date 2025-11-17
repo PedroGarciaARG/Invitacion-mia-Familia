@@ -4,22 +4,33 @@ import { useState } from "react";
 
 // --- DATA DE FAMILIAS E INTEGRANTES ---
 const families = {
+  // --- FAMILIA 1 ---
   "Matilde – Miguel": ["Matilde", "Miguel"],
   "Oscar – Natasha": ["Oscar", "Natasha"],
   "Alberto – Lorena – Thiago – Ámbar": ["Alberto", "Lorena", "Thiago", "Ámbar"],
   "Carlos – Lujan – Román": ["Carlos", "Lujan", "Román"],
-  "Carmen – Maira": ["Carmen", "Maira"],
+  "Michel": ["Michel"],
   "Matias – Dana": ["Matias", "Dana"],
+  "Carmen – Maira": ["Carmen", "Maira"],
   "Catalina – Justo": ["Catalina", "Justo"],
-  "Malena – Josué": ["Malena", "Josué"],
-  "Alice – Alberto – Santino – Maia": ["Alice", "Alberto", "Santino", "Maia"],
-  "Osvaldo – Thadeo – Thomas": ["Osvaldo", "Thadeo", "Thomas"],
-  "Araceli – Ramón – Emilia": ["Araceli", "Ramón", "Emilia"],
-  "Patricia – Ricardo": ["Patricia", "Ricardo"],
-  "Susana – Pascual – Guiliano – Mariana": ["Susana", "Pascual", "Guiliano", "Mariana"],
+  "Malena – Josue": ["Malena", "Josue"],
+  "Alice – Alberto – Maia – Santino": ["Alice", "Alberto", "Maia", "Santino"],
+  "Osvaldo – Thomas – Thadeo": ["Osvaldo", "Thomas", "Thadeo"],
+  "Araceli – Ramon – Emilia": ["Araceli", "Ramon", "Emilia"],
+
+  // --- FAMILIA 2 ---
   "Grisel – Emanuel – Barbara – Emilia": ["Grisel", "Emanuel", "Barbara", "Emilia"],
-  "Mariano – Tamara – Abal – Lucio – Martin": ["Mariano", "Tamara", "Abal", "Lucio", "Martin"],
+  "Gladys": ["Gladys"],
+  "Milva": ["Milva"],
+  "Carlos Señorelli – Laura": ["Carlos Señorelli", "Laura"],
+  "Daniel Señorelli": ["Daniel Señorelli"],
+  "Emilio Romero": ["Emilio Romero"],
+  "Mariano – Tamara – Martin – Lucio – Abal": ["Mariano", "Tamara", "Martin", "Lucio", "Abal"],
+
+  // --- FAMILIA 3 ---
+  "Susana – Pascual – Guiliano – Mariana": ["Susana", "Pascual", "Guiliano", "Mariana"],
   "Silvia – Thomas": ["Silvia", "Thomas"],
+  "Patricia Zanollo – Ricardo": ["Patricia Zanollo", "Ricardo"]
 };
 
 export default function ConfirmarAsistencia() {
