@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Color palette inspired by disco balls and pink glitter stars */
+  --color-background: #f5f3ef;
+  --color-foreground: #1a1a1a;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1a1a;
+  
+  --color-muted: #e8e5e0;
+  --color-muted-foreground: #6b6b6b;
+  
+  --color-accent: #e91e8c;
+  --color-accent-secondary: #ff69b4;
+  --color-accent-foreground: #ffffff;
+  
+  --color-silver: #c0c0c0;
+  
+  --color-border: #d4d1cc;
+  
+  --radius: 0.75rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
