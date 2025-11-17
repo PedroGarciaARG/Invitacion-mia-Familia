@@ -4,7 +4,6 @@ import { useState } from "react";
 
 // --- DATA DE FAMILIAS E INTEGRANTES ---
 const families = {
-  // --- FAMILIA 1 ---
   "Matilde – Miguel": ["Matilde", "Miguel"],
   "Oscar – Natasha": ["Oscar", "Natasha"],
   "Alberto – Lorena – Thiago – Ámbar": ["Alberto", "Lorena", "Thiago", "Ámbar"],
@@ -17,20 +16,6 @@ const families = {
   "Alice – Alberto – Maia – Santino": ["Alice", "Alberto", "Maia", "Santino"],
   "Osvaldo – Thomas – Thadeo": ["Osvaldo", "Thomas", "Thadeo"],
   "Araceli – Ramon – Emilia": ["Araceli", "Ramon", "Emilia"],
-
-  // --- FAMILIA 2 ---
-  "Grisel – Emanuel – Barbara – Emilia": ["Grisel", "Emanuel", "Barbara", "Emilia"],
-  "Gladys": ["Gladys"],
-  "Milva": ["Milva"],
-  "Carlos Señorelli – Laura": ["Carlos Señorelli", "Laura"],
-  "Daniel Señorelli": ["Daniel Señorelli"],
-  "Emilio Romero": ["Emilio Romero"],
-  "Mariano – Tamara – Martin – Lucio – Abal": ["Mariano", "Tamara", "Martin", "Lucio", "Abal"],
-
-  // --- FAMILIA 3 ---
-  "Susana – Pascual – Guiliano – Mariana": ["Susana", "Pascual", "Guiliano", "Mariana"],
-  "Silvia – Thomas": ["Silvia", "Thomas"],
-  "Patricia Zanollo – Ricardo": ["Patricia Zanollo", "Ricardo"]
 };
 
 export default function ConfirmarAsistencia() {
@@ -45,17 +30,10 @@ export default function ConfirmarAsistencia() {
     setResponses(initialMembers);
   };
 
-  const handleMemberResponse = (member, value) => {
-    setResponses({ ...responses, [member]: value });
-  };
-
-  // --- ENVÍO A WHATSAPP ---
   const handleSubmit = () => {
     const phone = "5491133018648"; // número destino sin espacios ni guiones
 
-    let message = `Confirmación de asistencia%0A`;
-    message += `Familia: ${family}%0A%0A`;
-    message += `Asistencia:%0A`;
+    let message = `Confirmación%0A${family}%0A%0A`;
 
     Object.entries(responses).forEach(([member, status]) => {
       message += `- ${member}: ${status}%0A`;
@@ -102,16 +80,16 @@ export default function ConfirmarAsistencia() {
 
       {/* Integrantes */}
       {family && (
-        <div className="space-y-4 bg-white/70 p-4 rounded-2xl shadow-lg border border-purple-100">
-          <h2 className="text-xl font-semibold mb-2">Integrantes</h2>
-
+        <div className="p-4 space-y-4 bg-white rounded-xl shadow">
           {families[family].map((member) => (
-            <div key={member} className="flex flex-col">
-              <label className="font-medium">¿Asistirá {member}?</label>
+            <div key={member}>
+              <label>{member}</label>
               <select
-                className="p-2 rounded-xl border"
+                className="w-full p-2 border rounded-xl"
                 value={responses[member]}
-                onChange={(e) => handleMemberResponse(member, e.target.value)}
+                onChange={(e) =>
+                  setResponses({ ...responses, [member]: e.target.value })
+                }
               >
                 <option value="">Elegir...</option>
                 <option value="Sí">Sí</option>
@@ -124,7 +102,12 @@ export default function ConfirmarAsistencia() {
 
       {/* Botón enviar */}
       {family && (
-        <button className="w-full p-4 rounded-2xl bg-purple-600 hover:bg-purple-700 transition text-white text-lg font-semibold shadow-md hover:shadow-xl" onClick={handleSubmit}>Enviar confirmación por WhatsApp</button>
+        <button
+          className="w-full p-4 rounded-2xl bg-purple-600 hover:bg-purple-700 transition text-white text-lg font-semibold shadow-md hover:shadow-xl"
+          onClick={handleSubmit}
+        >
+          Enviar confirmación por WhatsApp
+        </button>
       )}
     </div>
   );
